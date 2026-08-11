@@ -1,5 +1,5 @@
 # we are extending everything from tomcat:8.0 image ...
-FROM tomcat:8.5-alpine as build
+FROM tomcat:9.0-alpine as build
 
 COPY ggs /usr/local/ggs	
 COPY deploy-ggs.sh /usr/local/ggs/
@@ -17,7 +17,7 @@ RUN cd /tmp \
     && mv /tmp/rclone-*-linux-amd64/rclone /usr/local/rclone \
     && rm -r /tmp/rclone*	
 
-FROM tomcat:8.5-alpine
+FROM tomcat:9.0-alpine
 LABEL author="Precisely"
 
 RUN apk --no-cache add bc
